@@ -12,11 +12,11 @@ import lombok.Data;
  * 
  * @author lzj
  * @email lzj_0304@163.com
- * @date 2021-01-12 21:26:41
+ * @date 2021-01-12 22:00:15
  */
 @Data
 @TableName("t_user")
-public class UserEntity implements Serializable {
+public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
