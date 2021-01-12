@@ -17,5 +17,19 @@
     </resultMap>
 
 
+    <select id="queryAllSales" resultType="java.util.Map">
+        SELECT
+        u.id,
+        u.user_name AS uname
+        FROM
+            t_user u
+            LEFT JOIN t_user_role ur ON u.id = ur.user_id
+            LEFT JOIN t_role r ON ur.role_id = r.id
+        WHERE
+            u.is_valid = 1
+            AND r.is_valid = 1
+        AND r.role_name = "销售"
+    </select>
+
 
 </mapper>

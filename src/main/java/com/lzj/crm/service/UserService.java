@@ -4,6 +4,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.lzj.crm.entity.User;
 import com.lzj.crm.model.UserModel;
 
+import java.util.List;
+import java.util.Map;
+
 
 /**
  * 
@@ -14,5 +17,7 @@ import com.lzj.crm.model.UserModel;
  */
 public interface UserService extends IService<User> {
     public UserModel login(String userName, String userPwd);
+
+    List<Map<String, Object>> queryAllSales();
 }
 

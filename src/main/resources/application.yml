@@ -30,6 +30,10 @@ mybatis-plus:
       logic-not-delete-value: 0
 
 
+## pageHelper
+pagehelper:
+  helper-dialect: mysql
+
 ## 设置 dao 日志打印级别
 logging:
   level:

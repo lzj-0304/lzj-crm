@@ -13,6 +13,9 @@ import com.lzj.crm.dao.UserDao;
 import com.lzj.crm.entity.User;
 import com.lzj.crm.service.UserService;
 
+import java.util.List;
+import java.util.Map;
+
 
 @Service("userService")
 public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserService {
@@ -40,6 +43,10 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
         return buildUserInfo(user);
     }
 
+
+
+
+
     private UserModel buildUserInfo(User user) {
         UserModel userModel=new UserModel();
         userModel.setUserIdStr(UserIDBase64.encoderUserID(user.getId()));
@@ -51,5 +58,10 @@ public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserS
     private void checkLoginParams(String userName, String userPwd) {
         AssertUtil.isTrue(StringUtils.isBlank(userName),"用户名不能为空!");
         AssertUtil.isTrue(StringUtils.isBlank(userPwd),"用户密码不能为空!");
+    }
+
+    @Override
+    public List<Map<String, Object>> queryAllSales() {
+        return this.baseMapper.queryAllSales();
     }
 }

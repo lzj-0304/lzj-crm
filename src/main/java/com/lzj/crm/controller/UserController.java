@@ -1,6 +1,8 @@
 package com.lzj.crm.controller;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 import com.lzj.crm.model.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,46 +28,6 @@ public class UserController {
     private UserService userService;
 
 
-    /**
-     * 信息
-     */
-    @RequestMapping("/info/{id}")
-    public R info(@PathVariable("id") Integer id){
-		User user = userService.getById(id);
-
-        return R.ok().put("user", user);
-    }
-
-    /**
-     * 保存
-     */
-    @RequestMapping("/save")
-    public R save(@RequestBody User user){
-		userService.save(user);
-
-        return R.ok();
-    }
-
-    /**
-     * 修改
-     */
-    @RequestMapping("/update")
-    public R update(@RequestBody User user){
-		userService.updateById(user);
-
-        return R.ok();
-    }
-
-    /**
-     * 删除
-     */
-    @RequestMapping("/delete")
-    public R delete(@RequestBody Integer[] ids){
-		userService.removeByIds(Arrays.asList(ids));
-
-        return R.ok();
-    }
-
 
     /**
      * 用户登录
@@ -84,6 +46,12 @@ public class UserController {
          *    2.将用户信息返回给客户端 有客户端(cookie)保存
          */
         return R.ok().put("result",userModel);
+    }
+
+    @RequestMapping("user/queryAllSales")
+    @ResponseBody
+    public List<Map<String,Object>> queryAllSales(){
+        return userService.queryAllSales();
     }
 
 }
