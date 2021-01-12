@@ -1,7 +1,7 @@
 package com.lzj.crm.utils;
 
 
-import com.lzj.crm.exceptions.exceptions.ParamsException;
+import com.lzj.crm.exceptions.ParamsException;
 
 public class AssertUtil {
 

@@ -1,11 +1,10 @@
 package com.lzj.crm.controller;
 
 import java.util.Arrays;
+
+import com.lzj.crm.model.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.lzj.crm.entity.User;
 import com.lzj.crm.service.UserService;
@@ -65,6 +64,26 @@ public class UserController {
 		userService.removeByIds(Arrays.asList(ids));
 
         return R.ok();
+    }
+
+
+    /**
+     * 用户登录
+     *
+     * @param userName
+     * @param userPwd
+     * @return
+     */
+    @PostMapping("/login")
+    @ResponseBody
+    public R login(String userName, String userPwd) {
+        UserModel userModel = userService.login(userName, userPwd);
+        /**
+         * 登录成功后
+         *    1.将用户登录信息存入session
+         *    2.将用户信息返回给客户端 有客户端(cookie)保存
+         */
+        return R.ok().put("result",userModel);
     }
 
 }
