@@ -4,7 +4,7 @@
 <mapper namespace="com.lzj.crm.dao.UserDao">
 
 	<!-- 可根据自己的需求，是否要使用 -->
-    <resultMap type="com.lzj.crm.entity.UserEntity" id="userMap">
+    <resultMap type="com.lzj.crm.entity.User" id="userMap">
         <result property="id" column="id"/>
         <result property="userName" column="user_name"/>
         <result property="userPwd" column="user_pwd"/>
