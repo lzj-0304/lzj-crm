@@ -48,7 +48,7 @@ public class UserController {
         return R.ok().put("result",userModel);
     }
 
-    @RequestMapping("user/queryAllSales")
+    @RequestMapping("/queryAllSales")
     @ResponseBody
     public List<Map<String,Object>> queryAllSales(){
         return userService.queryAllSales();
