@@ -23,5 +23,7 @@ public interface SaleChanceService extends IService<SaleChance> {
     void updateSaleChance(SaleChance saleChance);
 
     void deleteSaleChance(Integer[] ids);
+
+    void updateSaleChanceDevResult(Integer id, Integer devResult);
 }
 

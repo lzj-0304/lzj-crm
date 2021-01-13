@@ -85,6 +85,13 @@ public class SaleChanceController extends BaseController {
     }
 
 
+    @RequestMapping("updateSaleChanceDevResult")
+    @ResponseBody
+    public R updateSaleChanceDevResult(Integer id,Integer devResult){
+        saleChanceService.updateSaleChanceDevResult(id,devResult);
+        return R.ok().put("msg","开发状态更新成功");
+    }
+
 
 
 }

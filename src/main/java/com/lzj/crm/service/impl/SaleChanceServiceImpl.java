@@ -117,6 +117,14 @@ public class SaleChanceServiceImpl extends ServiceImpl<SaleChanceDao, SaleChance
         AssertUtil.isTrue(!(this.removeByIds(Arrays.asList(ids))),"记录删除失败!");
     }
 
+    @Override
+    public void updateSaleChanceDevResult(Integer id, Integer devResult) {
+        SaleChance temp =this.getById(id);
+        AssertUtil.isTrue(null==temp,"待更新记录不存在!");
+        temp.setDevResult(devResult);
+        AssertUtil.isTrue(!(this.updateById(temp)),"机会数据状态更新失败!");
+    }
+
     private void checkParams(String customerName, String linkMan, String linkPhone) {
         AssertUtil.isTrue(StringUtils.isBlank(customerName),"请输入客户名!");
         AssertUtil.isTrue(StringUtils.isBlank(linkMan),"请输入联系人!");
